@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="600,700" sizebox="4,4,4,4" caption="0,0,0,30" showshadow="true" shadowimage="shadow2.png" shadowcorner="30,30,30,30" shadowsize="25" roundcorner="4,4">
+  <Font shared="true" id="0" name="宋体" size="13" default="true"/>
+  <Font shared="true" id="1" name="宋体" size="12" bold="false" underline="true"/>
+  <Font shared="true" id="2" name="宋体" size="16" bold="false"/>
+  <Font shared="true" id="3" name="宋体" size="18" bold="false"/>
+  <Font shared="true" id="4" name="宋体" size="24" bold="false"/>
+  <Default name="VScrollBar" shared="true" value="width=&quot;8&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file='vscrollbar.png' source='0,60,8,100' corner='0,4,0,4'&quot; thumbhotimage=&quot;file='vscrollbar.png' source='8,60,16,100' corner='0,4,0,4'&quot; thumbpushedimage=&quot;file='vscrollbar.png' source='16,60,24,100' corner='0,4,0,4'&quot; railnormalimage=&quot;&quot; railhotimage=&quot;&quot; railpushedimage=&quot;&quot; raildisabledimage=&quot;&quot; bknormalimage=&quot;file='vscrollbar.png' source='0,0,8,60' corner='0,4,0,4'&quot; bkhotimage=&quot;&quot; bkpushedimage=&quot;&quot; bkdisabledimage=&quot;&quot; "/>  
+  <Default name="HScrollBar" shared="true" value="height=&quot;8&quot; showbutton1=&quot;false&quot; showbutton2=&quot;false&quot; thumbnormalimage=&quot;file='hscrollbar.png' source='0,0,32,8' corner='4,0,4,0'&quot; thumbhotimage=&quot;file='hscrollbar.png' source='0,8,32,16' corner='4,0,4,0'&quot; thumbpushedimage=&quot;file='hscrollbar.png' source='0,16,32,24' corner='4,0,4,0'&quot; railnormalimage=&quot;&quot; railhotimage=&quot;&quot; railpushedimage=&quot;&quot; raildisabledimage=&quot;&quot; bknormalimage=&quot;file='hscrollbar.png' source='0,0,32,8' corner='4,0,4,0'&quot; bkhotimage=&quot;&quot; bkpushedimage=&quot;&quot; bkdisabledimage=&quot;&quot; "/>
+  <Style name="colorbtn_style" shared="true" value="textcolor=&quot;#FFAFADAD&quot; hottextcolor=&quot;#FFFFFFFF&quot; textpadding=&quot;6,0,6,0&quot; bkcolor=&quot;#FF2c2c2c&quot; hotbkcolor=&quot;#FF4b4b4b&quot; pushedbkcolor=&quot;#FF424242&quot;"  />
+  
+  <VerticalLayout name="background" width="840" height="320"  bkcolor="#FFffffff" bordercolor="#ff00ffff" >
+      <VerticalLayout >
+          <HorizontalLayout height="31" bkcolor="#FF252A2F" >
+              <HorizontalLayout padding="10,0,0,0">
+                  <Label name="title_name" text="Duilib xml文件预览工具" textcolor="#FFFFFFFF" font="0" autocalcwidth="true"/>
+              </HorizontalLayout>
+              <Control></Control>
+              <HorizontalLayout width="148" >
+                  <Control></Control>
+                  <Button name="min_btn" width="27" height="22" normalimage="file='sys_btn_min.png' source='0,0,26,22'" hotimage="file='sys_btn_min.png' source='27,0,53,22'" pushedimage="file='sys_btn_min.png' source='54,0,80,22'" cursor="hand"/>
+                  <Button name="max_btn" width="27" height="22" normalimage="file='sys_btn_max.png' source='0,0,26,22'" hotimage="file='sys_btn_max.png' source='27,0,53,22'" pushedimage="file='sys_btn_max.png' source='54,0,80,22'" cursor="hand"/>                
+                  <Button name="restore_btn" visible="false" width="27" height="22" normalimage="file='sys_btn_restore.png' source='0,0,26,22'" hotimage="file='sys_btn_restore.png' source='27,0,53,22'" pushedimage="file='sys_btn_restore.png' source='54,0,80,22'"/>
+                  <Button name="close_btn" width="27" height="22" normalimage="file='sys_btn_close.png' source='0,0,26,22'" hotimage="file='sys_btn_close.png' source='27,0,53,22'" pushedimage="file='sys_btn_close.png' source='54,0,80,22'" cursor="hand"/>
+                  <Control width="5"></Control>
+              </HorizontalLayout>
+         </HorizontalLayout>
+         <HorizontalLayout bordercolor="#FFa0a0a0"  bordersize="0">
+
+         <VerticalLayout bordersize="1" bordercolor="#FF333333" inset="2,2,2,2" padding="10,10,0,10">         
+             <HorizontalLayout name="xml_zone"  height="50" padding="10,10,0,10">
+                <Control></Control>
+                <!--<Label name="tips" text="请将xml文件拖拉到此区域" textcolor="#FF000000" font="2" autocalcwidth="true"/>-->
+                <RichEdit name="xml_path_edit" tipvalue="请输入xml文件的具体路径（包含xml文件本身）" font="2" textcolor="#FF999999" textpadding="10,5,0,5" width="400" height="30" bordersize="1" bordercolor="#FFEEEEEE"/>                
+                <Control></Control>
+             </HorizontalLayout>
+             <HorizontalLayout height="80" padding="10,10,0,10">
+                 <Control></Control>
+                 <Button name="preview_btn" text="预览xml布局效果（Esc退出预览）" font="2" width="300" height="50" style="colorbtn_style" cursor="hand"/>
+                 <Control></Control>
+             </HorizontalLayout>
+         </VerticalLayout>       
+      </HorizontalLayout>
+    </VerticalLayout>
+  </VerticalLayout>
+</Window>
