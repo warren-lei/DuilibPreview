@@ -57,14 +57,30 @@ void CMainWnd::Notify(TNotifyUI& msg)
 	}
 }
 
+LRESULT CMainWnd::OnDestroy(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
+{
+	bHandled = FALSE;
+	PostQuitMessage(0L);
+	return 0;
+}
+
 LRESULT CMainWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
+	LRESULT lRes = 0;
+	BOOL hHandled = TRUE;
+
 	switch (uMsg)
 	{
+	case WM_DESTROY:
+		lRes = OnDestroy(uMsg, wParam, lParam, hHandled);
+		break;
 	default:
 		break;
 	}
-	return 0;
+	
+	if (bHandled) return lRes;
+	if (m_pm.MessageHandler(uMsg, wParam, lParam, lRes)) return lRes;
+	return CWindowWnd::HandleMessage(uMsg, wParam, lParam);
 }
 
 LPCTSTR CMainWnd::GetWindowClassName() const
@@ -139,11 +155,11 @@ void CMainWnd::previewXmlLayout(/*LPSTR lpCmdLine*/)
 
 	//CPaintManagerUI::MessageLoop();
 	//CPaintManagerUI::MessageLoopChild();
+    //::CoUninitialize();
 	
 	CPreviewXml *pSettingDlg2 = new CPreviewXml(filepath->Right(filepath->GetLength() - n).GetData());
 	pSettingDlg2->SetSkinFolder(filepath->Left(n).GetData());
 	pSettingDlg2->Create(m_hWnd, _T(""), UI_WNDSTYLE_DIALOG, WS_EX_WINDOWEDGE);
 	pSettingDlg2->CenterWindow();
 	pSettingDlg2->ShowWindow(SW_NORMAL);
-	::CoUninitialize();
 }

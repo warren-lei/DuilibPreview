@@ -10,6 +10,7 @@ public:
 	void Notify(TNotifyUI& msg);
 	void InitWindow();
 
+	LRESULT OnDestroy(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 	LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
 	LPCTSTR GetWindowClassName() const;
